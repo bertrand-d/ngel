@@ -1,0 +1,42 @@
+@theme {
+    /* Colors */
+
+    --color-primary-1: #dedede4d;
+
+    --color-secondary-1: #191818;
+
+    /*Font family*/
+    --font-avenir: "Avenir", sans-serif;
+    --font-primary: var(--font-avenir);
+
+    /*Font sizes*/
+    /*64px*/
+    --font-size-2xl: 4rem;
+    /*48px*/
+    --font-size-xl: 3rem;
+    /*40px*/
+    --font-size-lg: 2.5rem;
+    /*32px*/
+    --font-size-lg-2: 2rem;
+    /*20px*/
+    --font-size-md: 1.25rem;
+    /*16*/
+    --font-size-sm: 1rem;
+    /*14px*/
+    --font-size-xs: 0.875rem;
+    /*12px*/
+    --font-size-xs-2: 0.75rem;
+    /*10px*/
+    --font-size-xs-3: 0.625rem;
+
+    /*Containers*/
+    --max-width-container: 1440px;
+
+    /* Spacing */
+    --spacing-xl: 160px;
+    --spacing-lg: 120px;
+    --spacing-md: 80px;
+    --spacing-sm: 64px;
+    --spacing-xs: 32px;
+    --spacing-xxs: 20px;
+}

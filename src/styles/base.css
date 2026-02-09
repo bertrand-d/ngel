@@ -1,0 +1,120 @@
+@layer base {
+    body {
+        overflow-x: hidden;
+        margin: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    a {
+        text-decoration: none;
+        line-height: normal;
+    }
+
+    p {
+        color: var(--color-secondary-3);
+        font-size: var(--font-size-sm);
+        font-weight: 400;
+        line-height: 20px;
+        font-family: var(--font-primary);
+    }
+
+    h1,
+    .h1-style {
+        font-family: var(--font-secondary);
+        font-size: 2.75rem;
+        font-weight: 400;
+        line-height: 44px;
+        letter-spacing: -2px;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2,
+    .h2-style {
+        font-family: var(--font-secondary);
+        font-size: 2.25rem;
+        font-weight: 400;
+        letter-spacing: -1.5px;
+        line-height: 36px;
+        margin: 0;
+        padding: 0;
+    }
+
+    h3,
+    .h3-style {
+        font-family: var(--font-secondary);
+        font-size: var(--font-size-lg);
+        font-weight: 400;
+        letter-spacing: -1px;
+        line-height: 36px;
+        margin: 0;
+        padding: 0;
+    }
+
+    h4,
+    .h4-style {
+        font-family: var(--font-secondary);
+        font-size: 1.5rem;
+        line-height: 28px;
+        letter-spacing: -1px;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+    }
+
+    h6,
+    .h6-style {
+        font-family: var(--font-secondary);
+        font-size: var(--font-size-md);
+        line-height: 20px;
+        letter-spacing: -0.25px;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+    }
+
+    @media (min-width: 640px) {
+
+        h1,
+        .h1-style {
+            font-size: var(--font-size-2xl);
+            line-height: 64px;
+            letter-spacing: -2.5px;
+        }
+
+        h2,
+        .h2-style {
+            font-size: var(--font-size-xl);
+            letter-spacing: -1px;
+            line-height: 48px;
+        }
+
+        h3,
+        .h3-style {
+            font-size: var(--font-size-lg);
+            line-height: 40px;
+        }
+
+        h4,
+        .h4-style {
+            font-size: var(--font-size-lg-2);
+            line-height: 36px;
+            letter-spacing: -1px;
+        }
+
+        h6,
+        .h6-style {
+            font-size: 1.5rem;
+            line-height: 28px;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            font-size: var(--font-size-sm);
+            line-height: 24px;
+        }
+    }
+}

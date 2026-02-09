@@ -1,0 +1,9 @@
+@layer utilities {
+    .max-container {
+        max-width: var(--max-width-container);
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
