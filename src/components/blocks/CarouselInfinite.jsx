@@ -117,7 +117,7 @@ function MarqueeRow({ items, direction }) {
 
 export default function CarouselInfinite() {
   return (
-    <div className="flex flex-col gap-4 py-15">
+    <div className="flex flex-col gap-4 py-15 marquee">
       <MarqueeRow items={ROW1_ITEMS} direction="ltr" />
       <MarqueeRow items={ROW2_ITEMS} direction="rtl" />
     </div>

@@ -16,4 +16,32 @@
         background-position: center;
         background-repeat: no-repeat;
     }
+
+    .marquee {
+        position: relative;
+    }
+
+    .marquee::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100%;
+        pointer-events: none;
+        z-index: 10;
+        background: linear-gradient(to right, white, transparent);
+    }
+
+    .marquee::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100%;
+        pointer-events: none;
+        z-index: 10;
+        background: linear-gradient(to left, white, transparent);
+    }
 }
