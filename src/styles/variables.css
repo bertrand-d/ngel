@@ -1,8 +1,10 @@
 @theme {
     /* Colors */
 
-    --color-primary-1: #abf700;
+    /*primary: vert, secondary: orange, tertiary: rouge*/
+    --color-primary-1: #8cc63f;
     --color-secondary-1: #ff590d;
+    --color-tertiary-1: #bc2729;
 
     /*Font family*/
     --font-avenir: "Avenir", sans-serif;
@@ -12,9 +14,9 @@
     /* xl: ~32px, lg: ~24px, md: 16px (base), sm: 14px, xs: 12px */
     --font-size-xl: 2rem;
     --font-size-lg: 1.5rem;
-    --font-size-md: 1rem;
-    --font-size-sm: 0.875rem;
-    --font-size-xs: 0.75rem;
+    --font-size-md: 1.3rem;
+    --font-size-sm: 1rem;
+    --font-size-xs: 0.875rem;
 
     /*Containers*/
     --max-width-container: 1440px;

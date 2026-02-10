@@ -8,13 +8,22 @@
     }
 
     .hero-bg {
-        /* Image de fond + dégradé noir -> transparent */
+        position: relative;
+        isolation: isolate;
+    }
+
+    .hero-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
         background-image:
-            linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent),
+            linear-gradient(to right, rgba(0, 0, 0, 0.7), transparent),
             url("../assets/img/PHOTO 1.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        filter: grayscale(100%);
     }
 
     .marquee {
