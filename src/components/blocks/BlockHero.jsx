@@ -1,6 +1,6 @@
 export default function BlockHero() {
     return (
-        <section className="max-container flex flex gap-md">
+        <section className="max-container flex flex gap-xl">
             <div
                 className="relative min-h-[535px] flex flex-col justify-center gap-5 flex-1 p-10 hero-bg"
             >

@@ -11,11 +11,11 @@ export default function Home() {
       <section className="max-container pt-sm">
         <CarouselInfinite />
       </section>
-      <section className="max-container grid grid-cols-2 gap-md py-sm">
+      <section className="max-container grid grid-cols-2 gap-xl py-sm">
         <div className="flex flex-col gap-xxs justify-center">
           <h2 className="text-secondary-1">
             Les experts-installateurs{" "}
-            <span className="text-primary-1">n/gel</span> pour une rénovation
+            <span className="text-primary-1">N|gel</span> pour une rénovation
             durable en toute confiance !
           </h2>
           <p className="text-secondary-1">
