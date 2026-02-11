@@ -1,8 +1,11 @@
 import BlockHero from "@/components/blocks/BlockHero";
-import CarouselInfinite from "@/components/blocks/CarouselInfinite";
+import CarouselInfinite from "@/components/CarouselInfinite";
+import BlockArgs from "@/components/blocks/BlockArgs";
 import Image from "next/image";
-import image from "../assets/img/PHOTO 2.jpg";
-import Link from "next/link";
+import image1 from "@/assets/img/PHOTO 3.jpg";
+import image2 from "@/assets/img/PHOTO 4.jpeg";
+import image3 from "@/assets/img/PHOTO 5.jpg";
+import image4 from "@/assets/img/PHOTO 6.jpg";
 
 export default function Home() {
   return (
@@ -11,50 +14,39 @@ export default function Home() {
       <section className="max-container pt-sm">
         <CarouselInfinite />
       </section>
-      <section className="max-container grid grid-cols-2 gap-xl py-sm">
-        <div className="flex flex-col gap-xxs justify-center">
-          <h2 className="text-secondary-1">
-            Les experts-installateurs{" "}
-            <span className="text-primary-1">N|gel</span> pour une rénovation
-            durable en toute confiance !
-          </h2>
-          <p className="text-secondary-1">
-            <span className="text-primary-1">Pose sans dégâts :</span> Nos
-            Spécialistes vous garantissent les meilleurs travaux et une finition
-            irréprochable.
-          </p>
-          <p className="bg-secondary-1 block px-xs py-xxs w-fit font-bold text-white">
-            Qualité de la mise en oeuvre!
-          </p>
-          <ul className="list-disc list-inside">
-            <li className="text-primary-1 text-xl">Chantier propre et sécurisé</li>
-            <li className="text-primary-1 text-xl">
-              Engagement sur les rendez-vous et les délais
-            </li>
-            <li className="text-primary-1 text-xl">
-              Respect des normes de mise en oeuvre
-            </li>
-            <li className="text-primary-1 text-xl">Réception de chantier <span className="text-tertiary-1">avec vous</span></li>
-            <li className="text-primary-1 text-xl">Respect de l'environnement</li>
-          </ul>
-          <Link
-            href="/"
-            className="bg-primary-1 py-3 px-4 text-white text-center font-bold w-fit ml-auto mt-auto"
-          >
-            DEMANDER UN DEVIS <br />
-            <span className="font-normal text-sm">
-              Précis - clair - sans surprise
-            </span>
-          </Link>
-        </div>
-        <div className="max-h-[525px] overflow-hidden flex">
-          <Image
-            src={image}
-            alt="image"
-            width={525}
-            height={525}
-            className="object-cover w-full object-[50%_50%]"
-          />
+      <BlockArgs />
+      <section className="bg-primary-1">
+        <div className="max-container grid grid-cols-2 gap-xl py-sm">
+          <div>
+            <h2 className="text-white">Nos gammes de produits</h2>
+            <div></div>
+          </div>
+          <div className="grid grid-cols-2 gap-xxs">
+            <div className="min-h-[370px] max-h-[370px] w-[278px] overflow-hidden">
+              <Image
+                src={image1}
+                alt="image"
+                width={278}
+                height={370}
+                className="object-cover w-full h-full object-[50%_50%]"
+              />
+            </div>
+            <div className="min-h-[370px] max-h-[370px] w-[278px] overflow-hidden">
+              <Image
+                src={image2}
+                alt="image"
+                width={278}
+                height={370}
+                className="object-cover w-full h-full object-[50%_50%]"
+              />
+            </div>
+            <div className="min-h-[370px] max-h-[370px] w-[278px] overflow-hidden">
+              <Image src={image3} alt="image" width={278} height={370} className="object-cover w-full h-full object-[50%_50%]" />
+            </div>
+            <div className="min-h-[370px] max-h-[370px] w-[278px] overflow-hidden">
+              <Image src={image4} alt="image" width={278} height={370} className="object-cover w-full h-full object-[50%_50%]" />
+            </div>
+          </div>
         </div>
       </section>
     </main>
