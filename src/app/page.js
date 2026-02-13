@@ -4,6 +4,7 @@ import BlockArgs from "@/components/blocks/BlockArgs";
 import BlockRange from "@/components/blocks/BlockRange";
 import BlockTroubleshooting from "@/components/blocks/BlockTroubleshooting";
 import BlockWaranty from "@/components/blocks/BlockWaranty";
+import BlockAddress from "@/components/blocks/BlockAddress";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <BlockRange />
       <BlockTroubleshooting />
       <BlockWaranty />
+      <BlockAddress />
     </main>
   );
 }

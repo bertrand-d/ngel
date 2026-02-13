@@ -1,4 +1,10 @@
 @layer base {
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 200px;
+    }
+
     body {
         overflow-x: hidden;
         margin: 0;

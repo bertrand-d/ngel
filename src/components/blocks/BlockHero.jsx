@@ -4,7 +4,7 @@ import Warranty from "@/assets/img/logo-garantie.png";
 
 export default function BlockHero() {
     return (
-        <section className="max-container flex flex gap-xl">
+        <section id="form-steps" className="max-container flex flex gap-xl">
             <div
                 className="relative min-h-[535px] flex flex-col justify-center gap-5 flex-1 p-10 pb-2 hero-bg"
             >
