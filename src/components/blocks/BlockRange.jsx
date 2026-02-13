@@ -76,7 +76,7 @@ export default function BlockRange() {
                                                     alt="image"
                                                     width={278}
                                                     height={370}
-                                                    className="object-cover w-full h-full object-[50%_50%]"
+                                                    className="object-cover w-full h-full object-[50%_50%] border-5 border-secondary-1"
                                                 />
                                             ))}
                                         </div>
