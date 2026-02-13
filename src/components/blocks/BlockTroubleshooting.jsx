@@ -28,7 +28,7 @@ export default function BlockTroubleshooting() {
                 </p>
                 <a
                     href="mailto:fd@ngel.io"
-                    className="bg-tertiary-1 py-3 px-10 text-white text-center font-bold w-fit ml-auto mt-auto hover:bg-secondary-1 transition-colors duration-300"
+                    className="bg-tertiary-1 py-3 px-10 text-white text-center font-bold w-fit ml-auto mt-auto hover:bg-primary-1 transition-colors duration-300"
                 >
                     DEPANNAGE
                 </a>
