@@ -47,7 +47,7 @@ export default function BlockRange() {
         <section className="bg-primary-1">
             <div className="max-container flex gap-xl py-sm">
                 <div className="flex flex-col gap-5 justify-center flex-1">
-                    <h2 className="text-white mb-5">Nos gammes de produits</h2>
+                    <h2 className="text-white mb-5 text-[2.5rem]">Nos gammes de produits</h2>
                     <div className="flex flex-col gap-xxs">
                         {ranges.map((range, index) => {
                             const isOpen = openIndex === index;
@@ -57,7 +57,7 @@ export default function BlockRange() {
                                     onClick={() =>
                                         setOpenIndex((prev) => (prev === index ? null : index))
                                     }>
-                                    <div className="flex w-full items-center justify-between p-5 bg-white text-primary-1 text-xl"
+                                    <div className="flex w-full items-center justify-between p-5 bg-white text-primary-1 text-[1.5rem] font-semibold"
                                     >
                                         <span>{range.title}</span>
                                         <span className="text-md text-tertiary-1">
