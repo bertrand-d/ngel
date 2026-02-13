@@ -1,6 +1,7 @@
 import Image from "next/image";
 import image from "../../assets/img/PHOTO 2.jpg";
 import Link from "next/link";
+import ButtonPrimary from "../ButtonPrimary";
 
 export default function BlockArgs() {
     return (
@@ -16,29 +17,21 @@ export default function BlockArgs() {
                     Spécialistes vous garantissent les meilleurs travaux et une finition
                     irréprochable.
                 </p>
-                <p className="bg-secondary-1 block px-xs py-xxs w-fit font-bold text-white">
+                <p className="bg-secondary-1 block ml-[-10px] px-2.5 py-2.5 w-fit font-semibold text-white">
                     Qualité de la mise en oeuvre!
                 </p>
                 <ul className="list-disc list-inside">
-                    <li className="text-primary-1 text-xl">Chantier propre et sécurisé</li>
-                    <li className="text-primary-1 text-xl">
+                    <li className="text-secondary-1 text-xl">Chantier propre et sécurisé</li>
+                    <li className="text-secondary-1 text-xl">
                         Engagement sur les rendez-vous et les délais
                     </li>
-                    <li className="text-primary-1 text-xl">
+                    <li className="text-secondary-1 text-xl">
                         Respect des normes de mise en oeuvre
                     </li>
-                    <li className="text-primary-1 text-xl">Réception de chantier <span className="text-tertiary-1">avec vous</span></li>
-                    <li className="text-primary-1 text-xl">Respect de l'environnement</li>
+                    <li className="text-secondary-1 text-xl">Réception de chantier <span className="text-tertiary-1">avec vous</span></li>
+                    <li className="text-secondary-1 text-xl">Respect de l'environnement</li>
                 </ul>
-                <Link
-                    href="/"
-                    className="bg-primary-1 py-3 px-4 text-white text-center font-bold w-fit ml-auto mt-auto"
-                >
-                    DEMANDER UN DEVIS <br />
-                    <span className="font-normal text-sm">
-                        Précis - clair - sans surprise
-                    </span>
-                </Link>
+                <ButtonPrimary />
             </div>
             <div className="max-h-[525px] overflow-hidden flex">
                 <Image
