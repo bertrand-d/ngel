@@ -26,12 +26,12 @@ export default function BlockTroubleshooting() {
                     N|gel s'engage à apporter une réponse concrète dans la journée
                     suivant la demande.
                 </p>
-                <Link
-                    href="/"
-                    className="bg-tertiary-1 py-3 px-4 text-white text-center font-bold w-fit ml-auto mt-auto"
+                <a
+                    href="mailto:fd@ngel.io"
+                    className="bg-tertiary-1 py-3 px-10 text-white text-center font-bold w-fit ml-auto mt-auto hover:bg-secondary-1 transition-colors duration-300"
                 >
                     DEPANNAGE
-                </Link>
+                </a>
             </div>
         </section>
     );
