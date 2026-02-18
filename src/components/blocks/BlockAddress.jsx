@@ -39,14 +39,16 @@ export default function BlockAddress() {
                 </div>
                 <ButtonPrimary className="mt-auto" />
             </div>
-            <div className="max-h-[525px] overflow-hidden flex flex-1">
-                <Image
-                    src={image}
-                    alt="image"
-                    width={525}
-                    height={525}
-                    className="object-cover w-full object-[50%_50%]"
-                />
+            <div className="corner-right flex-1">
+                <div className="max-h-[525px] overflow-hidden flex flex-1">
+                    <Image
+                        src={image}
+                        alt="image"
+                        width={525}
+                        height={525}
+                        className="object-cover w-full object-[50%_50%]"
+                    />
+                </div>
             </div>
         </section>
     );
