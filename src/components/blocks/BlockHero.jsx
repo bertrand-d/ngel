@@ -8,14 +8,16 @@ import { useState } from "react";
 export default function BlockHero() {
     return (
         <section id="form-steps" className="max-container flex flex gap-xl">
-            <div
-                className="relative min-h-[535px] flex flex-col justify-center gap-5 flex-1 p-10 pb-2 hero-bg"
-            >
-                <h1 className="h2-style text-secondary-1 text-center mb-3">Un projet de rénovation durable ?</h1>
-                <h2 className="h1-style text-primary-1 text-center mb-15">Votre spécialiste Ngel proche de <span className="text-tertiary-1">chez vous</span><br /> le réalise !</h2>
-                <div className="flex gap-5 justify-around">
-                    <Image src={Warranty} alt="Warranty" width={128} height={100} />
-                    <Image src={Qualibat} alt="Qualibat" width={100} height={100} />
+            <div className="corner-left flex-1">
+                <div
+                    className="relative min-h-[535px] flex flex-col justify-center gap-5 p-10 pb-2 hero-bg"
+                >
+                    <h1 className="h2-style text-secondary-1 text-center mb-3">Un projet de rénovation durable ?</h1>
+                    <h2 className="h1-style text-primary-1 text-center mb-15">Votre spécialiste Ngel proche de <span className="text-tertiary-1">chez vous</span><br /> le réalise !</h2>
+                    <div className="flex gap-5 justify-around">
+                        <Image src={Warranty} alt="Warranty" width={128} height={100} />
+                        <Image src={Qualibat} alt="Qualibat" width={100} height={100} />
+                    </div>
                 </div>
             </div>
             <div className="flex-1">
@@ -39,7 +41,7 @@ function MultiStepForm() {
         phone: '',
         projectDescription: ''
     });
-    
+
     const [currentStep, setCurrentStep] = useState(0);
 
     // Définir le flux du formulaire selon les choix
@@ -99,7 +101,7 @@ function MultiStepForm() {
 
     const handleChoice = (value) => {
         const step = steps[currentStep];
-        
+
         if (step.id === 'product') {
             setFormData({ ...formData, productType: value });
             setCurrentStep(1);
@@ -141,7 +143,7 @@ function MultiStepForm() {
             {/* Barre de progression */}
             <div className="mb-8">
                 <div className="w-full bg-gray-200 rounded-full h-2.5">
-                    <div 
+                    <div
                         className="bg-primary-1 h-2.5 rounded-full transition-all duration-500"
                         style={{ width: `${progress}%` }}
                     ></div>
