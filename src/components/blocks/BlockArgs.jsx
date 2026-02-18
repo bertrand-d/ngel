@@ -31,7 +31,7 @@ export default function BlockArgs() {
                     <li className="text-secondary-1 text-xl">Réception de chantier <span className="text-tertiary-1">avec vous</span></li>
                     <li className="text-secondary-1 text-xl">Respect de l'environnement</li>
                 </ul>
-                <ButtonPrimary />
+                <ButtonPrimary className="ml-auto mt-auto" />
             </div>
             <div className="corner-right flex-1">
                 <div className="max-h-[525px] overflow-hidden flex">
