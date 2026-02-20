@@ -8,11 +8,12 @@ import door from "@/assets/img/icons/porte.png";
 import shutter from "@/assets/img/icons/volets.png";
 import gate from "@/assets/img/icons/portail.png";
 import { useState } from "react";
+import ButtonPrimary from "../ButtonPrimary";
 
 export default function BlockHero() {
     return (
         <section id="form-steps" className="max-container flex flex gap-xl">
-            <div className="corner-left flex-1">
+            <div className="corner-left flex-1 h-fit">
                 <div
                     className="relative min-h-[535px] flex flex-col justify-center gap-5 p-10 pb-2 hero-bg"
                 >
@@ -24,7 +25,9 @@ export default function BlockHero() {
                     </div>
                 </div>
             </div>
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex flex-col gap-5 items-center justify-center">
+                <ButtonPrimary className="ml-auto" />
+
                 <MultiStepForm />
             </div>
         </section>
@@ -105,7 +108,7 @@ function MultiStepForm() {
 
     const handleChoice = (value) => {
         const step = steps[currentStep];
-        
+
         if (step.id === 'product') {
             setFormData({ ...formData, productType: value });
             setCurrentStep(1);
