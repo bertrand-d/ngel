@@ -3,6 +3,10 @@
 import Image from "next/image";
 import Qualibat from "@/assets/img/QUALIBAT RGE.jpg";
 import Warranty from "@/assets/img/logo-garantie.png";
+import doorWindows from "@/assets/img/icons/porte-fenetre.png";
+import door from "@/assets/img/icons/porte.png";
+import shutter from "@/assets/img/icons/volets.png";
+import gate from "@/assets/img/icons/portail.png";
 import { useState } from "react";
 
 export default function BlockHero() {
@@ -20,7 +24,7 @@ export default function BlockHero() {
                     </div>
                 </div>
             </div>
-            <div className="flex-1">
+            <div className="flex-1 flex items-center justify-center">
                 <MultiStepForm />
             </div>
         </section>
@@ -48,7 +52,7 @@ function MultiStepForm() {
     const getFormFlow = () => {
         const flows = {
             'fenetres': [
-                { id: 'product', question: 'Quel(s) produit(s) recherchez-vous ?', type: 'choice', choices: ['Fenêtres et portes fenêtres', 'Portes d\'entrée', 'Volets', 'Portails et clôtures'] },
+                { id: 'product', question: 'Choisissez votre ouvrage ?', type: 'choice', choices: [{ icon: doorWindows, label: 'Fenêtres et portes fenêtres' }, { icon: door, label: 'Portes d\'entrée' }, { icon: shutter, label: 'Volets' }, { icon: gate, label: 'Portails et clôtures' }] },
                 { id: 'windowType', question: 'Quelle typologie de fenêtres recherchez-vous ?', type: 'choice', choices: ['Fenêtres PVC', 'Fenêtres ALU', 'Fenêtres BOIS'] },
                 { id: 'quantity', question: 'Combien de menuiseries souhaitez-vous changer ?', type: 'choice', choices: ['1', '2', '3', '4', '5', 'Plus de 5'] },
                 { id: 'workType', question: 'Quel type de travaux réalisez-vous ?', type: 'choice', choices: ['Construction neuve', 'Rénovation'] },
@@ -56,14 +60,14 @@ function MultiStepForm() {
                 { id: 'contact', question: 'Quelles sont vos coordonnées ?', type: 'contact', fields: ['lastName', 'firstName', 'email', 'phone', 'projectDescription'] }
             ],
             'portes': [
-                { id: 'product', question: 'Quel(s) produit(s) recherchez-vous ?', type: 'choice', choices: ['Fenêtres et portes fenêtres', 'Portes d\'entrée', 'Volets', 'Portails et clôtures'] },
+                { id: 'product', question: 'Choisissez votre ouvrage ?', type: 'choice', choices: ['Fenêtres et portes fenêtres', 'Portes d\'entrée', 'Volets', 'Portails et clôtures'] },
                 { id: 'doorType', question: 'Quelle typologie de portes recherchez-vous ?', type: 'choice', choices: ['Porte PVC', 'Porte ALU Monobloc', 'Porte ALU', 'Porte ALU/BOIS', 'Porte BOIS', 'Porte RAU-FIPRO'] },
                 { id: 'workType', question: 'Quel type de travaux réalisez-vous ?', type: 'choice', choices: ['Construction neuve', 'Rénovation'] },
                 { id: 'location', question: 'Quelle est la localisation de votre projet ?', type: 'location', fields: ['postalCode', 'city'] },
                 { id: 'contact', question: 'Quelles sont vos coordonnées ?', type: 'contact', fields: ['lastName', 'firstName', 'email', 'phone', 'projectDescription'] }
             ],
             'volets': [
-                { id: 'product', question: 'Quel(s) produit(s) recherchez-vous ?', type: 'choice', choices: ['Fenêtres et portes fenêtres', 'Portes d\'entrée', 'Volets', 'Portails et clôtures'] },
+                { id: 'product', question: 'Choisissez votre ouvrage ?', type: 'choice', choices: ['Fenêtres et portes fenêtres', 'Portes d\'entrée', 'Volets', 'Portails et clôtures'] },
                 { id: 'shutterType', question: 'Quelle typologie de volets recherchez-vous ?', type: 'choice', choices: ['Volets PVC', 'Volets ALU'] },
                 { id: 'quantity', question: 'Combien de menuiseries souhaitez-vous changer ?', type: 'choice', choices: ['1', '2', '3', '4', '5', 'Plus de 5'] },
                 { id: 'workType', question: 'Quel type de travaux réalisez-vous ?', type: 'choice', choices: ['Construction neuve', 'Rénovation'] },
@@ -71,7 +75,7 @@ function MultiStepForm() {
                 { id: 'contact', question: 'Quelles sont vos coordonnées ?', type: 'contact', fields: ['lastName', 'firstName', 'email', 'phone', 'projectDescription'] }
             ],
             'portails': [
-                { id: 'product', question: 'Quel(s) produit(s) recherchez-vous ?', type: 'choice', choices: ['Fenêtres et portes fenêtres', 'Portes d\'entrée', 'Volets', 'Portails et clôtures'] },
+                { id: 'product', question: 'Choisissez votre ouvrage ?', type: 'choice', choices: ['Fenêtres et portes fenêtres', 'Portes d\'entrée', 'Volets', 'Portails et clôtures'] },
                 { id: 'gateType', question: 'Quelle typologie de portails recherchez-vous ?', type: 'choice', choices: ['Portail PVC', 'Portail ALU'] },
                 { id: 'workType', question: 'Quel type de travaux réalisez-vous ?', type: 'choice', choices: ['Construction neuve', 'Rénovation'] },
                 { id: 'location', question: 'Quelle est la localisation de votre projet ?', type: 'location', fields: ['postalCode', 'city'] },
@@ -142,15 +146,15 @@ function MultiStepForm() {
         <div className="bg-white p-8 rounded-lg shadow-lg">
             {/* Barre de progression */}
             <div className="mb-8">
+                <p className="text-sm text-gray-600 mb-2 text-center">
+                    Étape {currentStep + 1} sur {totalSteps}
+                </p>
                 <div className="w-full bg-gray-200 rounded-full h-2.5">
                     <div
                         className="bg-primary-1 h-2.5 rounded-full transition-all duration-500"
                         style={{ width: `${progress}%` }}
                     ></div>
                 </div>
-                <p className="text-sm text-gray-600 mt-2 text-center">
-                    Étape {currentStep + 1} sur {totalSteps}
-                </p>
             </div>
 
             {/* Question */}
@@ -161,21 +165,22 @@ function MultiStepForm() {
             {/* Contenu de l'étape */}
             {currentStepData.type === 'choice' && (
                 <>
-                    <div className="grid grid-cols-1 gap-3">
+                    <div className="relative z-0 grid grid-cols-2 gap-3">
                         {currentStepData.choices.map((choice, index) => (
                             <button
                                 key={index}
                                 onClick={() => handleChoice(choice)}
-                                className="p-4 border-2 border-gray-300 rounded-lg hover:border-primary-1 hover:bg-primary-1 hover:text-white transition-all duration-300 text-left font-medium"
+                                className="corner-both-sides flex flex-col items-center justify-center gap-2 bg-white text-secondary-1 cursor-pointer p-4 border-2 border-gray-300 hover:border-primary-1 hover:bg-secondary-1 hover:text-white transition-all duration-300 text-center font-medium"
                             >
-                                {choice}
+                                {choice.icon && <Image src={choice.icon} alt={choice.label} width={30} height={30} />}
+                                {choice.label || choice}
                             </button>
                         ))}
                     </div>
                     {currentStep > 0 && (
                         <button
                             onClick={handleBack}
-                            className="mt-4 w-full bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-bold hover:bg-gray-300 transition-colors duration-300"
+                            className="cursor-pointer mt-4 w-full bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-bold hover:bg-gray-300 transition-colors duration-300"
                         >
                             Retour
                         </button>
