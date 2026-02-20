@@ -161,7 +161,7 @@ function MultiStepForm() {
             </div>
 
             {/* Question */}
-            <h3 className="h4-style text-secondary-1 mb-6 text-center">
+            <h3 className="h4-style text-primary-1 mb-6 text-center">
                 {currentStepData.question}
             </h3>
 
