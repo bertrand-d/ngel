@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Qualibat from "@/assets/img/QUALIBAT RGE.jpg";
+import Qualibat from "@/assets/img/logo-rge.png";
 import Warranty from "@/assets/img/logo-garantie.png";
 import doorWindows from "@/assets/img/icons/porte-fenetre.png";
 import door from "@/assets/img/icons/porte.png";
@@ -21,7 +21,7 @@ export default function BlockHero() {
                     <h2 className="h1-style text-primary-1 text-center mb-15">Votre spécialiste Ngel proche de <span className="text-tertiary-1">chez vous</span><br /> le réalise !</h2>
                     <div className="flex gap-5 justify-around">
                         <Image src={Warranty} alt="Warranty" width={128} height={100} />
-                        <Image src={Qualibat} alt="Qualibat" width={100} height={100} />
+                        <Image src={Qualibat} alt="Qualibat" width={128} height={100} />
                     </div>
                 </div>
             </div>
