@@ -100,18 +100,18 @@ function MultiStepForm() {
     };
 
     const steps = getFormFlow();
-    const totalSteps = steps.length;
+    const totalSteps = 6; // Nombre maximum d'étapes
     const progress = ((currentStep + 1) / totalSteps) * 100;
 
     const handleChoice = (value) => {
         const step = steps[currentStep];
-
+        
         if (step.id === 'product') {
             setFormData({ ...formData, productType: value });
             setCurrentStep(1);
         } else {
             setFormData({ ...formData, [step.id]: value });
-            if (currentStep < totalSteps - 1) {
+            if (currentStep < steps.length - 1) {
                 setCurrentStep(currentStep + 1);
             }
         }
@@ -122,7 +122,7 @@ function MultiStepForm() {
     };
 
     const handleNext = () => {
-        if (currentStep < totalSteps - 1) {
+        if (currentStep < steps.length - 1) {
             setCurrentStep(currentStep + 1);
         }
     };
