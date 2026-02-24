@@ -17,9 +17,9 @@ export default function BlockHero() {
                 <div
                     className="relative min-h-[535px] flex flex-col justify-center gap-5 p-10 pb-2 hero-bg"
                 >
-                    <h1 className="h2-style text-secondary-1 text-center mb-3">Un projet de rénovation durable ?</h1>
-                    <h2 className="h1-style text-primary-1 text-center mb-15">Votre spécialiste Ngel proche de <span className="text-secondary-1">chez vous</span><br /> le réalise !</h2>
-                    <div className="flex gap-5 justify-around">
+                    <h1 className="h2-style text-secondary-1 text-center mb-5">Un projet de rénovation durable ?</h1>
+                    <h2 className="h1-style text-primary-1 text-center mt-5 mb-5">Votre spécialiste n|gel proche de <span className="text-secondary-1">chez vous</span><br /> le réalise !</h2>
+                    <div className="flex gap-5 justify-around mt-5">
                         <Image src={Warranty} alt="Warranty" width={128} height={100} />
                         <Image src={Qualibat} alt="Qualibat" width={128} height={100} />
                     </div>

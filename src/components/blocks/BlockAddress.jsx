@@ -8,7 +8,7 @@ export default function BlockAddress() {
             <div className="flex flex-col gap-5 justify-center flex-1">
                 <div className="flex flex-col gap-5 justify-center my-auto">
                     <h2 className="text-secondary-1">
-                        La force du réseau <span className="text-primary-1">N|gel</span>{" "}
+                        La force du réseau <span className="text-primary-1">n|gel</span>{" "}
                         présent en France depuis{" "}
                         <span className="text-primary-1">2002</span> et à <br/>Paris depuis{" "}
                         <span className="text-primary-1">2007</span> !
@@ -16,21 +16,21 @@ export default function BlockAddress() {
                     <div className="grid grid-cols-3 gap-5">
                         <div className="text-secondary-1">
                             <p className="font-semibold text-[1rem]">
-                                <span className="text-primary-1">N|gel</span>-Paris Ouest
+                                <span className="text-primary-1">n|gel</span>-Paris Ouest
                             </p>
                             <p className="text-[1rem]">5 rue Lavoisier</p>
                             <p className="text-[1rem]">92350 - LE PLESSIS ROBINSON</p>
                         </div>
                         <div className="text-secondary-1">
                             <p className="font-semibold text-[1rem]">
-                                <span className="text-primary-1">N|gel</span>-Paris Est
+                                <span className="text-primary-1">n|gel</span>-Paris Est
                             </p>
                             <p className="text-[1rem]">7 rue jean prouvé</p>
                             <p className="text-[1rem]">94800 - VILLEJUIF</p>
                         </div>
                         <div className="text-secondary-1">
                             <p className="font-semibold text-[1rem]">
-                                <span className="text-primary-1">N|gel</span>-Paris
+                                <span className="text-primary-1">n|gel</span>-Paris
                             </p>
                             <p className="text-[1rem]">58 rue de Monceau</p>
                             <p className="text-[1rem]">75008 - PARIS</p>

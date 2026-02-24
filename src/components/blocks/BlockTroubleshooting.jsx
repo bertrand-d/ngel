@@ -10,12 +10,12 @@ export default function BlockTroubleshooting() {
             </div>
             <div className="flex flex-col gap-3">
                 <h2 className="text-secondary-1">
-                    Les Experts de confiance reconnus depuis 25 ans !
+                    Les experts de confiance reconnus depuis 25 ans !
                 </h2>
                 <p className="text-primary-1">
                     Nous faire confiance, c’est faire confiance à des experts. Et
                     l’expertise, ça s’applique au quotidien au travers de nos
-                    spécialistes N|gel. Votre expert-technique a suivi une formation
+                    spécialistes n|gel. Votre expert-technique a suivi une formation
                     complète et est votre interlocuteur unique du devis jusqu’à la fin
                     de votre chantier.
                 </p>
@@ -23,7 +23,7 @@ export default function BlockTroubleshooting() {
                     Qualité du dépannage et du SAV !
                 </h3>
                 <p className="text-primary-1">
-                    N|gel s'engage à apporter une réponse concrète dans la journée
+                    n|gel s'engage à apporter une réponse concrète dans la journée
                     suivant la demande.
                 </p>
                 <a
