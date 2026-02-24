@@ -25,8 +25,8 @@ function RowContent({ items }) {
     <>
       {items.map((word, i) => (
         <span key={i} className="whitespace-nowrap">
-          <span className="text-secondary-1">{word}</span>
-          {i < items.length - 1 && <span className="text-primary-1 mr-2">{DASH}</span>}
+          <span className="text-secondary-1 font-semibold">{word}</span>
+          <span className="text-primary-1 mr-2">{DASH}</span>
         </span>
       ))}
     </>
@@ -98,7 +98,7 @@ function MarqueeRow({ items, direction }) {
     <div className="overflow-hidden w-full text-lg md:text-xl" aria-hidden="true">
       <div
         ref={trackRef}
-        className="inline-flex flex-nowrap gap-2 will-change-transform"
+        className="inline-flex flex-nowrap will-change-transform"
         style={{ width: "max-content" }}
       >
         {Array.from({ length: COPIES_COUNT }).map((_, i) => (
