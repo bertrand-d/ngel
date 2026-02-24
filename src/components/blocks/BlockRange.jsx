@@ -60,7 +60,7 @@ export default function BlockRange() {
                                     <div className="flex w-full items-center justify-between p-5 bg-white text-primary-1 text-[1.5rem] font-semibold"
                                     >
                                         <span>{range.title}</span>
-                                        <span className="text-md text-tertiary-1">
+                                        <span className="text-md text-secondary-1">
                                             {isOpen ? "–" : "+"}
                                         </span>
                                     </div>

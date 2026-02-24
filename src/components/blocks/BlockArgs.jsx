@@ -13,7 +13,7 @@ export default function BlockArgs() {
                     durable en toute confiance !
                 </h2>
                 <p className="text-secondary-1">
-                    <span className="text-primary-1">Pose sans dégâts :</span> Nos
+                    <span className="text-primary-1">Pose sans dégât :</span> Nos
                     Spécialistes vous garantissent les meilleurs travaux et une finition
                     irréprochable.
                 </p>
