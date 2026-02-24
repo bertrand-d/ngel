@@ -6,7 +6,7 @@ import image3 from "@/assets/img/logo-rge.png";
 export default function BlockWaranty() {
     return (
         <section className="max-container py-sm">
-            <h2 className="text-secondary-1 text-center mb-md">Nos garanties !</h2>
+            <h2 className="text-secondary-1 text-center mb-md text-[2.5rem]">Nos garanties !</h2>
             <div className="grid grid-cols-3 gap-2 justify-between items-center w-[80%] mx-auto">
                 <Image src={image1} alt="image" width={320} height={122} />
                 <div className="flex justify-center items-center">

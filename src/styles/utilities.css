@@ -131,6 +131,30 @@
         z-index: -1;
     }
 
+    .corner-both-sides.corner-both-sides--secondary-1::before {
+        background-color: var(--color-secondary-1);
+        z-index: 0;
+    }
+
+    .corner-both-sides.corner-both-sides--secondary-1::after {
+        background-color: var(--color-secondary-1);
+        z-index: 0;
+    }
+
+    .corner-both-sides.corner-both-sides--larger::before {
+        top: -10px;
+        left: -10px;
+        width: 30%;
+        height: 20%;
+    }
+
+    .corner-both-sides.corner-both-sides--larger::after {
+        bottom: -10px;
+        right: -10px;
+        width: 30%;
+        height: 20%;
+    }
+
     .list-marker-secondary-1 li::marker {
         color: var(--color-secondary-1);
     }

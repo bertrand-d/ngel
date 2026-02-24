@@ -76,7 +76,7 @@ export default function BlockRange() {
                                                     alt="image"
                                                     width={278}
                                                     height={370}
-                                                    className="object-cover w-full h-full object-[50%_50%] border-5 border-secondary-1"
+                                                    className="object-cover w-full h-full object-[50%_50%] border-10 border-secondary-1"
                                                 />
                                             ))}
                                         </div>
@@ -87,29 +87,49 @@ export default function BlockRange() {
                     </div>
                 </div>
                 <div className="grid grid-cols-2 gap-xxs flex-1">
-                    <div className="min-h-[370px] max-h-[370px] w-[278px] overflow-hidden">
-                        <Image
-                            src={image1}
-                            alt="image"
-                            width={278}
-                            height={370}
-                            className="object-cover w-full h-full object-[50%_50%]"
-                        />
+                    <div className="corner-both-sides corner-both-sides--secondary-1 corner-both-sides--larger min-h-[370px] max-h-[370px] w-[278px]">
+                        <div className="overflow-hidden h-full w-full relative z-1">
+                            <Image
+                                src={image1}
+                                alt="image"
+                                width={278}
+                                height={370}
+                                className="object-cover w-full h-full object-[50%_50%]"
+                            />
+                        </div>
                     </div>
-                    <div className="min-h-[370px] max-h-[370px] w-[278px] overflow-hidden">
-                        <Image
-                            src={image2}
-                            alt="image"
-                            width={278}
-                            height={370}
-                            className="object-cover w-full h-full object-[50%_50%]"
-                        />
+                    <div className="corner-both-sides corner-both-sides--secondary-1 corner-both-sides--larger min-h-[370px] max-h-[370px] w-[278px]">
+                        <div className="overflow-hidden relative z-1">
+                            <Image
+                                src={image2}
+                                alt="image"
+                                width={278}
+                                height={370}
+                                className="object-cover w-full h-full object-[50%_50%]"
+                            />
+                        </div>   
                     </div>
-                    <div className="min-h-[370px] max-h-[370px] w-[278px] overflow-hidden">
-                        <Image src={image3} alt="image" width={278} height={370} className="object-cover w-full h-full object-[50%_50%]" />
+                    <div className="corner-both-sides corner-both-sides--secondary-1 corner-both-sides--larger min-h-[370px] max-h-[370px] w-[278px]">
+                        <div className="overflow-hidden relative z-1">
+                            <Image
+                                src={image3}
+                                alt="image"
+                                width={278}
+                                height={370}
+                                className="object-cover w-full h-full object-[50%_50%]"
+                            />
+                        </div>
                     </div>
-                    <div className="min-h-[370px] max-h-[370px] w-[278px] overflow-hidden">
-                        <Image src={image4} alt="image" width={278} height={370} className="object-cover w-full h-full object-[50%_50%]" />
+                    <div className="corner-both-sides corner-both-sides--secondary-1 corner-both-sides--larger min-h-[370px] max-h-[370px] w-[278px]">
+                        <div className="overflow-hidden relative z-1">
+                            <Image
+                                src={image4}
+                                alt="image"
+                                width={278}
+                                height={370}
+                                className="object-cover w-full h-full object-[50%_50%]"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
