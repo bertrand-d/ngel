@@ -2,6 +2,7 @@
 /**
  * Endpoint d'envoi du formulaire de demande (n|gel).
  * Reçoit les données en JSON et envoie un email à dbertrand.webdev@gmail.com
+ * Placé dans public/ pour être inclus au build et servi à /api/send-form.php
  */
 
 header('Content-Type: application/json; charset=utf-8');
