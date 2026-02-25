@@ -221,7 +221,7 @@ function MultiStepForm() {
                             placeholder="Ex: Paris"
                         />
                     </div>
-                    <div className="flex gap-3">
+                    <div className="flex flex-col lg:flex-row gap-3">
                         {currentStep > 0 && (
                             <button
                                 type="button"
@@ -243,7 +243,7 @@ function MultiStepForm() {
 
             {currentStepData.type === 'contact' && (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid lg:grid-cols-2 gap-4">
                         <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">
                                 Nom
