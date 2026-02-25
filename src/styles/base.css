@@ -78,4 +78,16 @@
         margin: 0;
         padding: 0;
     }
+
+    @media all and (max-width: 768px) {
+        h1,
+        .h1-style {
+            font-size: 2rem;
+        }
+
+        h2,
+        .h2-style {
+            font-size: 1.8rem;
+        }
+    }
 }

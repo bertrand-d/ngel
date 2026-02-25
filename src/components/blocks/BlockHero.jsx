@@ -15,7 +15,7 @@ export default function BlockHero() {
         <section id="form-steps" className="max-container flex flex-col gap-md lg:flex-row lg:gap-xl">
             <div className="corner-left flex-1 h-fit">
                 <div
-                    className="relative min-h-[535px] flex flex-col justify-center gap-5 p-10 pb-2 hero-bg"
+                    className="relative min-h-[535px] flex flex-col justify-center gap-5 p-5 lg:p-10 lg:pb-2 hero-bg"
                 >
                     <h1 className="h2-style text-secondary-1 text-center mb-5">Un projet de rénovation durable ?</h1>
                     <h2 className="h1-style text-primary-1 text-center mt-5 mb-5">Votre spécialiste n|gel proche de <span className="text-secondary-1">chez vous</span><br /> le réalise !</h2>
@@ -174,7 +174,7 @@ function MultiStepForm() {
                                 <button
                                     key={index}
                                     onClick={() => handleChoice(value)}
-                                    className="corner-both-sides flex flex-col items-center justify-center gap-2 bg-white text-secondary-1 cursor-pointer p-4 border-2 border-gray-300 hover:border-primary-1 hover:bg-secondary-1 hover:text-white transition-all duration-300 text-center font-medium"
+                                    className="corner-both-sides flex flex-col items-center justify-center gap-2 bg-white text-secondary-1 cursor-pointer p-4 border-2 border-gray-300 hover:border-primary-1 lg:hover:bg-secondary-1 lg:hover:text-white transition-all duration-300 text-center font-medium"
                                 >
                                     {choice.icon && <Image src={choice.icon} alt={choice.label} width={30} height={30} />}
                                     {typeof choice === 'string' ? choice : choice.label}

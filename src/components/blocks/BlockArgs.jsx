@@ -17,7 +17,7 @@ export default function BlockArgs() {
                     Spécialistes vous garantissent les meilleurs travaux et une finition
                     irréprochable.
                 </p>
-                <p className="font-semibold text-secondary-1 text-[2rem]">
+                <p className="font-semibold text-secondary-1 h2-style">
                     Qualité de la mise en oeuvre !
                 </p>
                 <ul className="list-disc list-inside list-marker-secondary-1">

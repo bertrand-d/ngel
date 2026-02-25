@@ -7,13 +7,13 @@ export default function BlockAddress() {
         <section className="max-container py-sm flex gap-md flex-col lg:flex-row lg:gap-xl">
             <div className="flex flex-col gap-5 justify-center flex-1">
                 <div className="flex flex-col gap-5 h-full">
-                    <h2 className="text-secondary-1">
+                    <h2 className="text-secondary-1 text-center lg:text-left">
                         La force du réseau <span className="text-primary-1">n|gel</span>{" "}
                         présent en France depuis{" "}
                         <span className="text-primary-1">2002</span> et à <br />Paris depuis{" "}
                         <span className="text-primary-1">2007</span> !
                     </h2>
-                    <div className="flex gap-5 justify-between my-auto">
+                    <div className="flex flex-col lg:flex-row gap-5 justify-between my-auto">
                         <div className="text-secondary-1 text-center">
                             <p className="font-semibold text-[1rem]">
                                 <span className="text-primary-1">n|gel</span>-Paris
@@ -37,7 +37,7 @@ export default function BlockAddress() {
                         </div>
                     </div>
                 </div>
-                <ButtonPrimary className="mt-auto ml-auto" />
+                <ButtonPrimary className="mx-auto mt-auto lg:ml-auto" />
             </div>
             <div className="corner-right flex-1">
                 <div className="max-h-[525px] overflow-hidden flex flex-1">
