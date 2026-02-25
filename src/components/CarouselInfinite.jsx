@@ -95,7 +95,7 @@ function MarqueeRow({ items, direction }) {
   }, [direction]);
 
   return (
-    <div className="overflow-hidden w-full text-lg md:text-xl" aria-hidden="true">
+    <div className="overflow-hidden w-full text-lg lg:text-xl" aria-hidden="true">
       <div
         ref={trackRef}
         className="inline-flex flex-nowrap will-change-transform"

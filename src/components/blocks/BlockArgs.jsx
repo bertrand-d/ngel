@@ -5,7 +5,7 @@ import ButtonPrimary from "../ButtonPrimary";
 
 export default function BlockArgs() {
     return (
-        <section className="max-container grid grid-cols-2 gap-xl py-sm">
+        <section className="max-container grid lg:grid-cols-2 gap-md lg:gap-xl py-sm">
             <div className="flex flex-col gap-xxs justify-center">
                 <h2 className="text-secondary-1">
                     Les experts-installateurs{" "}

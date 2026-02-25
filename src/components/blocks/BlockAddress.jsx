@@ -4,7 +4,7 @@ import image from "@/assets/img/PHOTO 13.jpg";
 
 export default function BlockAddress() {
     return (
-        <section className="max-container py-sm flex gap-xl">
+        <section className="max-container py-sm flex gap-md flex-col lg:flex-row lg:gap-xl">
             <div className="flex flex-col gap-5 justify-center flex-1">
                 <div className="flex flex-col gap-5 h-full">
                     <h2 className="text-secondary-1">

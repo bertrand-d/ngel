@@ -12,7 +12,7 @@ import ButtonPrimary from "../ButtonPrimary";
 
 export default function BlockHero() {
     return (
-        <section id="form-steps" className="max-container flex flex gap-xl">
+        <section id="form-steps" className="max-container flex flex-col gap-md lg:flex-row lg:gap-xl">
             <div className="corner-left flex-1 h-fit">
                 <div
                     className="relative min-h-[535px] flex flex-col justify-center gap-5 p-10 pb-2 hero-bg"
