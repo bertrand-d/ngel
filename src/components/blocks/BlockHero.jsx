@@ -55,7 +55,7 @@ function MultiStepForm() {
         const flows = {
             'fenetres': [
                 { id: 'product', question: 'Choisissez votre ouvrage ?', type: 'choice', choices: [{ icon: doorWindows, label: 'Fenêtres et portes fenêtres' }, { icon: door, label: 'Portes d\'entrée' }, { icon: shutter, label: 'Volets' }, { icon: gate, label: 'Stores et Portes de garage' }] },
-                { id: 'windowType', question: 'Quelle typologie de fenêtres recherchez-vous ?', type: 'choice', choices: ['Fenêtres PVC', 'Fenêtres ALU', 'Fenêtres BOIS'] },
+                { id: 'windowType', question: 'Quelle typologie de fenêtres recherchez-vous ?', type: 'choice', choices: ['Fenêtres PVC', 'Fenêtres ALU', 'Fenêtres Bois'] },
                 { id: 'quantity', question: 'Combien de menuiseries souhaitez-vous changer ?', type: 'choice', choices: ['1', '2', '3', '4', '5', 'Plus de 5'] },
                 { id: 'workType', question: 'Quel type de travaux réalisez-vous ?', type: 'choice', choices: ['Construction neuve', 'Rénovation'] },
                 { id: 'location', question: 'Quelle est la localisation de votre projet ?', type: 'location', fields: ['postalCode', 'city'] },
@@ -63,14 +63,14 @@ function MultiStepForm() {
             ],
             'portes': [
                 { id: 'product', question: 'Choisissez votre ouvrage ?', type: 'choice', choices: [{ icon: doorWindows, label: 'Fenêtres et portes fenêtres' }, { icon: door, label: 'Portes d\'entrée' }, { icon: shutter, label: 'Volets' }, { icon: gate, label: 'Stores et Portes de garage' }] },
-                { id: 'doorType', question: 'Quelle typologie de portes recherchez-vous ?', type: 'choice', choices: ['Porte PVC', 'Porte ALU Monobloc', 'Porte ALU', 'Porte ALU/BOIS', 'Porte BOIS', 'Porte RAU-FIPRO'] },
+                { id: 'doorType', question: 'Quelle typologie de portes recherchez-vous ?', type: 'choice', choices: ['Porte PVC', 'Porte ALU', 'Porte Bois', 'Porte Blindée'] },
                 { id: 'workType', question: 'Quel type de travaux réalisez-vous ?', type: 'choice', choices: ['Construction neuve', 'Rénovation'] },
                 { id: 'location', question: 'Quelle est la localisation de votre projet ?', type: 'location', fields: ['postalCode', 'city'] },
                 { id: 'contact', question: 'Quelles sont vos coordonnées ?', type: 'contact', fields: ['lastName', 'firstName', 'email', 'phone', 'projectDescription'] }
             ],
             'volets': [
                 { id: 'product', question: 'Choisissez votre ouvrage ?', type: 'choice', choices: [{ icon: doorWindows, label: 'Fenêtres et portes fenêtres' }, { icon: door, label: 'Portes d\'entrée' }, { icon: shutter, label: 'Volets' }, { icon: gate, label: 'Stores et Portes de garage' }] },
-                { id: 'shutterType', question: 'Quelle typologie de volets recherchez-vous ?', type: 'choice', choices: ['Volets PVC', 'Volets ALU'] },
+                { id: 'shutterType', question: 'Quelle typologie de volets recherchez-vous ?', type: 'choice', choices: ['Volet Roulant', 'Volet Battant', 'Volet Persienne'] },
                 { id: 'quantity', question: 'Combien de menuiseries souhaitez-vous changer ?', type: 'choice', choices: ['1', '2', '3', '4', '5', 'Plus de 5'] },
                 { id: 'workType', question: 'Quel type de travaux réalisez-vous ?', type: 'choice', choices: ['Construction neuve', 'Rénovation'] },
                 { id: 'location', question: 'Quelle est la localisation de votre projet ?', type: 'location', fields: ['postalCode', 'city'] },
@@ -78,7 +78,7 @@ function MultiStepForm() {
             ],
             'stores': [
                 { id: 'product', question: 'Choisissez votre ouvrage ?', type: 'choice', choices: [{ icon: doorWindows, label: 'Fenêtres et portes fenêtres' }, { icon: door, label: 'Portes d\'entrée' }, { icon: shutter, label: 'Volets' }, { icon: gate, label: 'Stores et Portes de garage' }] },
-                { id: 'gateType', question: 'Quelle typologie de portes ou de stores recherchez-vous ?', type: 'choice', choices: ['Porte / Store PVC', 'Porte / Store ALU'] },
+                { id: 'gateType', question: 'Quelle typologie de portes ou de stores recherchez-vous ?', type: 'choice', choices: ['Store', 'Moustiquaire', 'Porte de garage', 'Portail'] },
                 { id: 'workType', question: 'Quel type de travaux réalisez-vous ?', type: 'choice', choices: ['Construction neuve', 'Rénovation'] },
                 { id: 'location', question: 'Quelle est la localisation de votre projet ?', type: 'location', fields: ['postalCode', 'city'] },
                 { id: 'contact', question: 'Quelles sont vos coordonnées ?', type: 'contact', fields: ['lastName', 'firstName', 'email', 'phone', 'projectDescription'] }

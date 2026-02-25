@@ -6,14 +6,14 @@ export default function BlockAddress() {
     return (
         <section className="max-container py-sm flex gap-xl">
             <div className="flex flex-col gap-5 justify-center flex-1">
-                <div className="flex flex-col gap-5 justify-center my-auto">
+                <div className="flex flex-col gap-5 h-full">
                     <h2 className="text-secondary-1">
                         La force du réseau <span className="text-primary-1">n|gel</span>{" "}
                         présent en France depuis{" "}
                         <span className="text-primary-1">2002</span> et à <br />Paris depuis{" "}
                         <span className="text-primary-1">2007</span> !
                     </h2>
-                    <div className="flex gap-5 justify-between">
+                    <div className="flex gap-5 justify-between my-auto">
                         <div className="text-secondary-1 text-center">
                             <p className="font-semibold text-[1rem]">
                                 <span className="text-primary-1">n|gel</span>-Paris
@@ -25,7 +25,7 @@ export default function BlockAddress() {
                             <p className="font-semibold text-[1rem]">
                                 <span className="text-primary-1">n|gel</span>-Paris Est
                             </p>
-                            <p className="text-[1rem]">7 rue jean prouvé</p>
+                            <p className="text-[1rem]">7 rue Jean Prouvé</p>
                             <p className="text-[1rem]">94800 Villejuif</p>
                         </div>
                         <div className="text-secondary-1 text-center">
