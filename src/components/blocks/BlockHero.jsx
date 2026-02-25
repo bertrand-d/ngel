@@ -101,6 +101,7 @@ function MultiStepForm() {
     const [errors, setErrors] = useState({});
     const [touched, setTouched] = useState({});
     const [currentStep, setCurrentStep] = useState(0);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     // Définir le flux du formulaire selon les choix
     const getFormFlow = () => {
@@ -228,11 +229,60 @@ function MultiStepForm() {
         const contactFields = ['lastName', 'firstName', 'email', 'phone', 'projectDescription'];
         if (step.type === 'contact' && !validateFields(contactFields)) return;
         console.log('Données du formulaire:', formData);
-        // Ici vous pouvez ajouter la logique d'envoi du formulaire
-        alert('Demande envoyée avec succès !');
+        // Ici vous pouvez ajouter la logique d'envoi du formulaire (API, etc.)
+        setIsSubmitted(true);
     };
 
     const currentStepData = steps[currentStep];
+
+    // Écran de confirmation après envoi réussi
+    if (isSubmitted) {
+        return (
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+                <div className="mb-8">
+                    <p className="text-sm text-gray-600 mb-2 text-center">
+                        Formulaire envoyé
+                    </p>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                        <div
+                            className="bg-primary-1 h-2.5 rounded-full transition-all duration-500"
+                            style={{ width: '100%' }}
+                        />
+                    </div>
+                </div>
+                <div className="flex flex-col items-center justify-center py-8 text-center">
+                    <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-6" aria-hidden>
+                        <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 className="h4-style text-primary-1 mb-3">
+                        Demande envoyée avec succès
+                    </h3>
+                    <p className="text-gray-600 mb-6">
+                        Merci pour votre demande. Nous vous recontacterons dans les plus brefs délais.
+                    </p>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            setIsSubmitted(false);
+                            setFormData({
+                                productType: '', subType: '', quantity: '', workType: '',
+                                postalCode: '', city: '', firstName: '', lastName: '',
+                                email: '', phone: '', projectDescription: ''
+                            });
+                            setErrors({});
+                            setTouched({});
+                            setCurrentStep(0);
+                        }}
+                        className="bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-bold hover:bg-gray-300 transition-colors duration-300"
+                    >
+                        Faire une nouvelle demande
+                    </button>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="bg-white p-8 rounded-lg shadow-lg">
@@ -331,7 +381,7 @@ function MultiStepForm() {
                             </p>
                         )}
                     </div>
-                    <div className="flex flex-col lg:flex-row gap-3">
+                    <div className="flex flex-col-reverse lg:flex-row gap-3">
                         {currentStep > 0 && (
                             <button
                                 type="button"
