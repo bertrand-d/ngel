@@ -102,6 +102,12 @@ function MultiStepForm() {
     const [touched, setTouched] = useState({});
     const [currentStep, setCurrentStep] = useState(0);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState(null);
+
+    const formActionUrl = typeof window !== 'undefined'
+        ? (process.env.NEXT_PUBLIC_FORM_ACTION || '/api/send-form.php')
+        : '/api/send-form.php';
 
     // Définir le flux du formulaire selon les choix
     const getFormFlow = () => {
@@ -223,14 +229,29 @@ function MultiStepForm() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const step = steps[currentStep];
         const contactFields = ['lastName', 'firstName', 'email', 'phone', 'projectDescription'];
         if (step.type === 'contact' && !validateFields(contactFields)) return;
-        console.log('Données du formulaire:', formData);
-        // Ici vous pouvez ajouter la logique d'envoi du formulaire (API, etc.)
-        setIsSubmitted(true);
+        setSubmitError(null);
+        setIsSubmitting(true);
+        try {
+            const res = await fetch(formActionUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+            const result = await res.json().catch(() => ({}));
+            if (!res.ok || !result.success) {
+                throw new Error(result.message || 'Erreur lors de l\'envoi');
+            }
+            setIsSubmitted(true);
+        } catch (err) {
+            setSubmitError(err.message || 'Impossible d\'envoyer la demande. Réessayez plus tard.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const currentStepData = steps[currentStep];
@@ -512,11 +533,17 @@ function MultiStepForm() {
                             </p>
                         )}
                     </div>
+                    {submitError && (
+                        <p className="text-sm text-red-600 bg-red-50 p-3 rounded-lg" role="alert">
+                            {submitError}
+                        </p>
+                    )}
                     <button
                         type="submit"
-                        className="w-full bg-primary-1 text-white py-3 px-6 rounded-lg font-bold hover:bg-secondary-1 transition-colors duration-300"
+                        disabled={isSubmitting}
+                        className="w-full bg-primary-1 text-white py-3 px-6 rounded-lg font-bold hover:bg-secondary-1 transition-colors duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
-                        Envoyer ma demande
+                        {isSubmitting ? 'Envoi en cours…' : 'Envoyer ma demande'}
                     </button>
                 </form>
             )}
