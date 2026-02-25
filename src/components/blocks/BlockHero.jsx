@@ -33,6 +33,56 @@ export default function BlockHero() {
     );
 }
 
+// Règles de validation par champ
+const validators = {
+    postalCode: (value) => {
+        const v = (value || '').trim();
+        if (!v) return 'Le code postal est requis.';
+        if (v.length < 3 || v.length > 12) return 'Entrez un code postal valide (3 à 12 caractères).';
+        if (!/^[\p{L}\d\s\-]+$/u.test(v)) return 'Le code postal ne peut contenir que des lettres, chiffres, espaces ou tirets.';
+        return null;
+    },
+    city: (value) => {
+        const v = (value || '').trim();
+        if (!v) return 'La ville est requise.';
+        if (v.length < 2) return 'La ville doit contenir au moins 2 caractères.';
+        if (!/^[\p{L}\s\-']+$/u.test(v)) return 'La ville ne doit contenir que des lettres, espaces, tirets ou apostrophes.';
+        return null;
+    },
+    lastName: (value) => {
+        const v = (value || '').trim();
+        if (!v) return 'Le nom est requis.';
+        if (v.length < 2) return 'Le nom doit contenir au moins 2 caractères.';
+        if (!/^[\p{L}\s\-']+$/u.test(v)) return 'Le nom ne doit contenir que des lettres, espaces, tirets ou apostrophes.';
+        return null;
+    },
+    firstName: (value) => {
+        const v = (value || '').trim();
+        if (!v) return 'Le prénom est requis.';
+        if (v.length < 2) return 'Le prénom doit contenir au moins 2 caractères.';
+        if (!/^[\p{L}\s\-']+$/u.test(v)) return 'Le prénom ne doit contenir que des lettres, espaces, tirets ou apostrophes.';
+        return null;
+    },
+    email: (value) => {
+        const v = (value || '').trim();
+        if (!v) return 'L\'email est requis.';
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(v)) return 'Entrez une adresse email valide (ex. nom@domaine.fr).';
+        return null;
+    },
+    phone: (value) => {
+        const v = (value || '').replace(/\s/g, '').replace(/[.\-]/g, '').replace(/^\+/, '');
+        if (!v) return 'Le numéro de téléphone est requis.';
+        if (!/^\d{9,15}$/.test(v)) return 'Entrez un numéro valide (9 à 15 chiffres, avec ou sans indicatif pays).';
+        return null;
+    },
+    projectDescription: (value) => {
+        const v = (value || '').trim();
+        if (v.length > 2000) return 'La description ne doit pas dépasser 2000 caractères.';
+        return null;
+    }
+};
+
 function MultiStepForm() {
     const [formData, setFormData] = useState({
         productType: '',
@@ -48,6 +98,8 @@ function MultiStepForm() {
         projectDescription: ''
     });
 
+    const [errors, setErrors] = useState({});
+    const [touched, setTouched] = useState({});
     const [currentStep, setCurrentStep] = useState(0);
 
     // Définir le flux du formulaire selon les choix
@@ -119,11 +171,46 @@ function MultiStepForm() {
         }
     };
 
+    const validateField = (field) => {
+        const validator = validators[field];
+        if (!validator) return null;
+        const message = validator(formData[field]);
+        setErrors((prev) => ({ ...prev, [field]: message || '' }));
+        return message;
+    };
+
+    const validateFields = (fields) => {
+        const newErrors = {};
+        fields.forEach((field) => {
+            const validator = validators[field];
+            if (validator) {
+                const message = validator(formData[field]);
+                if (message) newErrors[field] = message;
+            }
+        });
+        setErrors((prev) => ({ ...prev, ...newErrors }));
+        setTouched((prev) => ({ ...prev, ...Object.fromEntries(fields.map((f) => [f, true])) }));
+        return Object.keys(newErrors).length === 0;
+    };
+
     const handleInputChange = (field, value) => {
         setFormData({ ...formData, [field]: value });
+        if (touched[field] && validators[field]) {
+            const message = validators[field](value);
+            setErrors((prev) => ({ ...prev, [field]: message || '' }));
+        }
+    };
+
+    const handleBlur = (field) => {
+        setTouched((prev) => ({ ...prev, [field]: true }));
+        validateField(field);
     };
 
     const handleNext = () => {
+        const step = steps[currentStep];
+        if (step.type === 'location' && step.fields) {
+            if (!validateFields(step.fields)) return;
+        }
         if (currentStep < steps.length - 1) {
             setCurrentStep(currentStep + 1);
         }
@@ -137,6 +224,9 @@ function MultiStepForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const step = steps[currentStep];
+        const contactFields = ['lastName', 'firstName', 'email', 'phone', 'projectDescription'];
+        if (step.type === 'contact' && !validateFields(contactFields)) return;
         console.log('Données du formulaire:', formData);
         // Ici vous pouvez ajouter la logique d'envoi du formulaire
         alert('Demande envoyée avec succès !');
@@ -196,30 +286,50 @@ function MultiStepForm() {
             {currentStepData.type === 'location' && (
                 <form onSubmit={(e) => { e.preventDefault(); handleNext(); }} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="postalCode">
                             Code postal
                         </label>
                         <input
+                            id="postalCode"
                             type="text"
+                            maxLength={12}
                             value={formData.postalCode}
-                            onChange={(e) => handleInputChange('postalCode', e.target.value)}
-                            required
-                            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-primary-1 focus:outline-none"
+                            onChange={(e) => {
+                                const v = e.target.value.replace(/[^\p{L}\d\s\-]/gu, '').slice(0, 12);
+                                handleInputChange('postalCode', v);
+                            }}
+                            onBlur={() => handleBlur('postalCode')}
+                            className={`w-full p-3 border-2 rounded-lg focus:outline-none ${errors.postalCode ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-primary-1'}`}
                             placeholder="Ex: 75001"
+                            aria-invalid={!!errors.postalCode}
+                            aria-describedby={errors.postalCode ? 'postalCode-error' : undefined}
                         />
+                        {errors.postalCode && (
+                            <p id="postalCode-error" className="mt-1 text-sm text-red-600" role="alert">
+                                {errors.postalCode}
+                            </p>
+                        )}
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="city">
                             Ville
                         </label>
                         <input
+                            id="city"
                             type="text"
                             value={formData.city}
                             onChange={(e) => handleInputChange('city', e.target.value)}
-                            required
-                            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-primary-1 focus:outline-none"
+                            onBlur={() => handleBlur('city')}
+                            className={`w-full p-3 border-2 rounded-lg focus:outline-none ${errors.city ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-primary-1'}`}
                             placeholder="Ex: Paris"
+                            aria-invalid={!!errors.city}
+                            aria-describedby={errors.city ? 'city-error' : undefined}
                         />
+                        {errors.city && (
+                            <p id="city-error" className="mt-1 text-sm text-red-600" role="alert">
+                                {errors.city}
+                            </p>
+                        )}
                     </div>
                     <div className="flex flex-col lg:flex-row gap-3">
                         {currentStep > 0 && (
@@ -245,65 +355,112 @@ function MultiStepForm() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid lg:grid-cols-2 gap-4">
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                            <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="lastName">
                                 Nom
                             </label>
                             <input
+                                id="lastName"
                                 type="text"
                                 value={formData.lastName}
                                 onChange={(e) => handleInputChange('lastName', e.target.value)}
-                                required
-                                className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-primary-1 focus:outline-none"
+                                onBlur={() => handleBlur('lastName')}
+                                className={`w-full p-3 border-2 rounded-lg focus:outline-none ${errors.lastName ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-primary-1'}`}
+                                placeholder="Votre nom"
+                                aria-invalid={!!errors.lastName}
+                                aria-describedby={errors.lastName ? 'lastName-error' : undefined}
                             />
+                            {errors.lastName && (
+                                <p id="lastName-error" className="mt-1 text-sm text-red-600" role="alert">
+                                    {errors.lastName}
+                                </p>
+                            )}
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                            <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="firstName">
                                 Prénom
                             </label>
                             <input
+                                id="firstName"
                                 type="text"
                                 value={formData.firstName}
                                 onChange={(e) => handleInputChange('firstName', e.target.value)}
-                                required
-                                className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-primary-1 focus:outline-none"
+                                onBlur={() => handleBlur('firstName')}
+                                className={`w-full p-3 border-2 rounded-lg focus:outline-none ${errors.firstName ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-primary-1'}`}
+                                placeholder="Votre prénom"
+                                aria-invalid={!!errors.firstName}
+                                aria-describedby={errors.firstName ? 'firstName-error' : undefined}
                             />
+                            {errors.firstName && (
+                                <p id="firstName-error" className="mt-1 text-sm text-red-600" role="alert">
+                                    {errors.firstName}
+                                </p>
+                            )}
                         </div>
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="email">
                             Email
                         </label>
                         <input
+                            id="email"
                             type="email"
                             value={formData.email}
                             onChange={(e) => handleInputChange('email', e.target.value)}
-                            required
-                            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-primary-1 focus:outline-none"
+                            onBlur={() => handleBlur('email')}
+                            className={`w-full p-3 border-2 rounded-lg focus:outline-none ${errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-primary-1'}`}
+                            placeholder="nom@exemple.fr"
+                            aria-invalid={!!errors.email}
+                            aria-describedby={errors.email ? 'email-error' : undefined}
                         />
+                        {errors.email && (
+                            <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">
+                                {errors.email}
+                            </p>
+                        )}
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="phone">
                             Téléphone
                         </label>
                         <input
+                            id="phone"
                             type="tel"
+                            inputMode="tel"
                             value={formData.phone}
                             onChange={(e) => handleInputChange('phone', e.target.value)}
-                            required
-                            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-primary-1 focus:outline-none"
+                            onBlur={() => handleBlur('phone')}
+                            className={`w-full p-3 border-2 rounded-lg focus:outline-none ${errors.phone ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-primary-1'}`}
+                            placeholder="Ex: 06 12 34 56 78 ou +33 6 12 34 56 78"
+                            aria-invalid={!!errors.phone}
+                            aria-describedby={errors.phone ? 'phone-error' : undefined}
                         />
+                        {errors.phone && (
+                            <p id="phone-error" className="mt-1 text-sm text-red-600" role="alert">
+                                {errors.phone}
+                            </p>
+                        )}
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Votre projet en quelques mots
+                        <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="projectDescription">
+                            Votre projet en quelques mots <span className="text-gray-500 font-normal">(optionnel, 2000 caractères max)</span>
                         </label>
                         <textarea
+                            id="projectDescription"
                             value={formData.projectDescription}
                             onChange={(e) => handleInputChange('projectDescription', e.target.value)}
+                            onBlur={() => handleBlur('projectDescription')}
                             rows="4"
-                            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:border-primary-1 focus:outline-none"
+                            maxLength={2000}
+                            className={`w-full p-3 border-2 rounded-lg focus:outline-none ${errors.projectDescription ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-primary-1'}`}
                             placeholder="Décrivez votre projet..."
-                        ></textarea>
+                            aria-invalid={!!errors.projectDescription}
+                            aria-describedby={errors.projectDescription ? 'projectDescription-error' : undefined}
+                        />
+                        {errors.projectDescription && (
+                            <p id="projectDescription-error" className="mt-1 text-sm text-red-600" role="alert">
+                                {errors.projectDescription}
+                            </p>
+                        )}
                     </div>
                     <button
                         type="submit"
