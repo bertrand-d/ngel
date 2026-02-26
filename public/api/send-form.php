@@ -68,7 +68,7 @@ foreach ($data as $key => $value) {
 }
 $body = implode("\n", $lines);
 
-$to = 'dbertrand.webdev@gmail.com';
+$to = 'fd@ngel.io';
 $subject = 'n|gel – Nouvelle demande de contact';
 $headers = [
     'From: noreply@ngel.fr',
