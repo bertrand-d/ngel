@@ -69,7 +69,6 @@ export default function Home() {
           );
         } else {
           const adressesJson = await adressesRes.json();
-          console.log("Données WordPress – adresses:", adressesJson);
           setAdressesData(adressesJson);
         }
 
@@ -81,7 +80,6 @@ export default function Home() {
           );
         } else {
           const photosJson = await photosRes.json();
-          console.log("Données WordPress – photos:", photosJson);
           setPhotosData(photosJson);
         }
       } catch (error) {
@@ -127,10 +125,25 @@ export default function Home() {
         <CarouselInfinite />
       </section>
       <BlockArgs image={firstPhotoImage} />
-      <BlockRange image1={secondPhotoImage} image2={thirdPhotoImage} image3={fourthPhotoImage} image4={fifthPhotoImage} image5={sixthPhotoImage} image6={seventhPhotoImage} image7={eighthPhotoImage} image8={ninthPhotoImage} image9={tenthPhotoImage} image10={eleventhPhotoImage} image11={twelfthPhotoImage} image12={thirteenthPhotoImage} image13={fourteenthPhotoImage} image14={fifteenthPhotoImage} />
+      <BlockRange
+        image1={secondPhotoImage}
+        image2={thirdPhotoImage}
+        image3={fourthPhotoImage}
+        image4={fifthPhotoImage}
+        image5={sixthPhotoImage}
+        image6={seventhPhotoImage}
+        image7={eighthPhotoImage}
+        image8={ninthPhotoImage}
+        image9={tenthPhotoImage}
+        image10={eleventhPhotoImage}
+        image11={twelfthPhotoImage}
+        image12={thirteenthPhotoImage}
+        image13={fourteenthPhotoImage}
+        image14={fifteenthPhotoImage}
+      />
       <BlockTroubleshooting image={sixteenthPhotoImage} />
       <BlockWaranty />
-      <BlockAddress image={seventeenthPhotoImage} />
+      <BlockAddress image={seventeenthPhotoImage} address={adressesData?.[0]} />
     </main>
   );
 }
