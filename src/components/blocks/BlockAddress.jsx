@@ -1,8 +1,7 @@
 import ButtonPrimary from "@/components/ButtonPrimary";
 import Image from "next/image";
-import image from "@/assets/img/PHOTO 13.jpg";
 
-export default function BlockAddress() {
+export default function BlockAddress({image}) {
     return (
         <section className="max-container py-sm flex gap-md flex-col lg:flex-row lg:gap-xl">
             <div className="flex flex-col gap-5 justify-center flex-1">

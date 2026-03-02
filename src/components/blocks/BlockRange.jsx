@@ -2,47 +2,32 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import image1 from "@/assets/img/PHOTO 3.jpg";
-import image2 from "@/assets/img/PHOTO 4.jpeg";
-import image3 from "@/assets/img/PHOTO 5.jpg";
-import image4 from "@/assets/img/PHOTO 6.jpg";
-import image5 from "@/assets/img/PHOTO 7 - 1.jpg";
-import image6 from "@/assets/img/PHOTO 7 - 2.jpg";
-import image7 from "@/assets/img/PHOTO 8 - 1.jpg";
-import image8 from "@/assets/img/PHOTO 8 - 2.jpg";
-import image9 from "@/assets/img/PHOTO 9 - 1.jpg";
-import image10 from "@/assets/img/PHOTO 9 - 2.jpg";
-import image11 from "@/assets/img/PHOTO 10 - 1.jpeg";
-import image12 from "@/assets/img/PHOTO 10 - 2.jpg";
-import image13 from "@/assets/img/PHOTO 11 - 1.jpg";
-import image14 from "@/assets/img/PHOTO 11 - 2.jpg";
 
-const ranges = [
-    {
-        title: "Nos Fenêtres et Portes fenêtres",
-        images: [image5, image6],
-    },
-    {
-        title: "Nos Portes d'entrée",
-        images: [image7, image8],
-    },
-    {
-        title: "Nos Volets",
-        images: [image9, image10],
-    },
-    {
-        title: "Nos Stores et Moustiquaires",
-        images: [image11, image12],
-    },
-    {
-        title: "Nos Portes de Garage",
-        images: [image13, image14],
-    },
-];
-
-export default function BlockRange() {
+export default function BlockRange({image1, image2, image3, image4, image5, image6, image7, image8, image9, image10, image11, image12, image13, image14}) {
     const [openIndex, setOpenIndex] = useState(null);
 
+    const ranges = [
+        {
+            title: "Nos Fenêtres et Portes fenêtres",
+            images: [image5, image6],
+        },
+        {
+            title: "Nos Portes d'entrée",
+            images: [image7, image8],
+        },
+        {
+            title: "Nos Volets",
+            images: [image9, image10],
+        },
+        {
+            title: "Nos Stores et Moustiquaires",
+            images: [image11, image12],
+        },
+        {
+            title: "Nos Portes de Garage",
+            images: [image13, image14],
+        },
+    ];
     return (
         <section className="bg-primary-1">
             <div className="max-container flex flex-col lg:flex-row gap-md lg:gap-xl py-sm">

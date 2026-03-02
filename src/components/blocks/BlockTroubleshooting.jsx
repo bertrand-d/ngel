@@ -1,7 +1,6 @@
 import Image from "next/image";
-import image from "@/assets/img/PHOTO 12.jpg";
 
-export default function BlockTroubleshooting() {
+export default function BlockTroubleshooting({image}) {
     return (
         <section className="max-container py-md grid lg:grid-cols-2 gap-md lg:gap-xl">
             <div className="corner-left flex-1 flex">

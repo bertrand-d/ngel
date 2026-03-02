@@ -93,6 +93,22 @@ export default function Home() {
   }, [WP_API_BASE]);
 
   const firstPhotoImage = photosData?.[0]?.acf?.photo_1;
+  const secondPhotoImage = photosData?.[0]?.acf?.photo_2;
+  const thirdPhotoImage = photosData?.[0]?.acf?.photo_3;
+  const fourthPhotoImage = photosData?.[0]?.acf?.photo_4;
+  const fifthPhotoImage = photosData?.[0]?.acf?.photo_5;
+  const sixthPhotoImage = photosData?.[0]?.acf?.photo_6;
+  const seventhPhotoImage = photosData?.[0]?.acf?.photo_7;
+  const eighthPhotoImage = photosData?.[0]?.acf?.photo_8;
+  const ninthPhotoImage = photosData?.[0]?.acf?.photo_9;
+  const tenthPhotoImage = photosData?.[0]?.acf?.photo_10;
+  const eleventhPhotoImage = photosData?.[0]?.acf?.photo_11;
+  const twelfthPhotoImage = photosData?.[0]?.acf?.photo_12;
+  const thirteenthPhotoImage = photosData?.[0]?.acf?.photo_13;
+  const fourteenthPhotoImage = photosData?.[0]?.acf?.photo_14;
+  const fifteenthPhotoImage = photosData?.[0]?.acf?.photo_15;
+  const sixteenthPhotoImage = photosData?.[0]?.acf?.photo_16;
+  const seventeenthPhotoImage = photosData?.[0]?.acf?.photo_17;
 
   return (
     <main className="relative mt-[140px]">
@@ -111,10 +127,10 @@ export default function Home() {
         <CarouselInfinite />
       </section>
       <BlockArgs image={firstPhotoImage} />
-      <BlockRange />
-      <BlockTroubleshooting />
+      <BlockRange image1={secondPhotoImage} image2={thirdPhotoImage} image3={fourthPhotoImage} image4={fifthPhotoImage} image5={sixthPhotoImage} image6={seventhPhotoImage} image7={eighthPhotoImage} image8={ninthPhotoImage} image9={tenthPhotoImage} image10={eleventhPhotoImage} image11={twelfthPhotoImage} image12={thirteenthPhotoImage} image13={fourteenthPhotoImage} image14={fifteenthPhotoImage} />
+      <BlockTroubleshooting image={sixteenthPhotoImage} />
       <BlockWaranty />
-      <BlockAddress />
+      <BlockAddress image={seventeenthPhotoImage} />
     </main>
   );
 }
