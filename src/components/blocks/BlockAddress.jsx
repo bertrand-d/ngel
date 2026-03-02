@@ -40,13 +40,13 @@ export default function BlockAddress() {
                 <ButtonPrimary className="mx-auto mt-auto lg:ml-auto" />
             </div>
             <div className="corner-right flex-1">
-                <div className="max-h-[525px] overflow-hidden flex flex-1">
+                <div className="h-full lg:max-h-[525px] overflow-hidden flex flex-1">
                     <Image
                         src={image}
                         alt="image"
                         width={525}
                         height={525}
-                        className="object-cover w-full object-[50%_50%]"
+                        className="object-cover h-full w-full object-[50%_50%]"
                     />
                 </div>
             </div>

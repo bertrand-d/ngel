@@ -86,8 +86,8 @@ export default function BlockRange() {
                         })}
                     </div>
                 </div>
-                <div className="grid lg:grid-cols-2 gap-xxs flex-1">
-                    <div className="corner-both-sides corner-both-sides--secondary-1 corner-both-sides--larger lg:min-h-[370px] lg:max-h-[370px] lg:w-[278px]">
+                <div className="grid lg:grid-cols-2 gap-[30px] flex-1">
+                    <div className="corner-both-sides corner-both-sides--secondary-1 corner-both-sides--larger">
                         <div className="overflow-hidden h-full w-full relative z-1">
                             <Image
                                 src={image1}
@@ -98,8 +98,8 @@ export default function BlockRange() {
                             />
                         </div>
                     </div>
-                    <div className="corner-both-sides corner-both-sides--secondary-1 corner-both-sides--larger lg:min-h-[370px] lg:max-h-[370px] lg:w-[278px]">
-                        <div className="overflow-hidden relative z-1">
+                    <div className="corner-both-sides corner-both-sides--secondary-1 corner-both-sides--larger">
+                        <div className="overflow-hidden h-full w-full relative z-1">
                             <Image
                                 src={image2}
                                 alt="image"
@@ -109,8 +109,8 @@ export default function BlockRange() {
                             />
                         </div>   
                     </div>
-                    <div className="corner-both-sides corner-both-sides--secondary-1 corner-both-sides--larger lg:min-h-[370px] lg:max-h-[370px] lg:w-[278px]">
-                        <div className="overflow-hidden relative z-1">
+                    <div className="corner-both-sides corner-both-sides--secondary-1 corner-both-sides--larger">
+                        <div className="overflow-hidden h-full w-full relative z-1">
                             <Image
                                 src={image3}
                                 alt="image"
@@ -120,8 +120,8 @@ export default function BlockRange() {
                             />
                         </div>
                     </div>
-                    <div className="corner-both-sides corner-both-sides--secondary-1 corner-both-sides--larger lg:min-h-[370px] lg:max-h-[370px] lg:w-[278px]">
-                        <div className="overflow-hidden relative z-1">
+                    <div className="corner-both-sides corner-both-sides--secondary-1 corner-both-sides--larger">
+                        <div className="overflow-hidden h-full w-full relative z-1">
                             <Image
                                 src={image4}
                                 alt="image"

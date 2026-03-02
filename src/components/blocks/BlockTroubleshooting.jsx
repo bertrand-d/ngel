@@ -4,7 +4,7 @@ import image from "@/assets/img/PHOTO 12.jpg";
 export default function BlockTroubleshooting() {
     return (
         <section className="max-container py-md grid lg:grid-cols-2 gap-md lg:gap-xl">
-            <div className="corner-left flex-1">
+            <div className="corner-left flex-1 flex">
                 <Image src={image} alt="image" width={700} height={700} />
             </div>
             <div className="flex flex-col gap-3">

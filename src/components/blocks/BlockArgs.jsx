@@ -34,13 +34,13 @@ export default function BlockArgs() {
                 <ButtonPrimary className="ml-auto mt-auto" />
             </div>
             <div className="corner-right flex-1">
-                <div className="max-h-[525px] overflow-hidden flex">
+                <div className="h-full lg:max-h-[525px] overflow-hidden flex">
                     <Image
                         src={image}
                         alt="image"
                         width={525}
                         height={525}
-                        className="object-cover w-full object-[50%_50%]"
+                        className="object-cover h-full w-full object-[50%_50%]"
                     />
                 </div>
             </div>
