@@ -1,6 +1,9 @@
 # Activer le moteur de réécriture
 RewriteEngine On
 
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://ngelparis.com/$1 [L,R=301]
+
 # Permettre l'accès aux fichiers statiques
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
