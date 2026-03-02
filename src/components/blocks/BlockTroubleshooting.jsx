@@ -1,10 +1,14 @@
 import Image from "next/image";
 
 export default function BlockTroubleshooting({image}) {
+    const hasImage = !!image;
+
     return (
         <section className="max-container py-md grid lg:grid-cols-2 gap-md lg:gap-xl">
             <div className="corner-left flex-1 flex">
-                <Image src={image} alt="image" width={700} height={700} />
+                {hasImage && (
+                    <Image src={image} alt="image" width={700} height={700} />
+                )}
             </div>
             <div className="flex flex-col gap-3">
                 <h2 className="text-secondary-1">

@@ -2,6 +2,8 @@ import ButtonPrimary from "@/components/ButtonPrimary";
 import Image from "next/image";
 
 export default function BlockAddress({image}) {
+    const hasImage = !!image;
+
     return (
         <section className="max-container py-sm flex gap-md flex-col lg:flex-row lg:gap-xl">
             <div className="flex flex-col gap-5 justify-center flex-1">
@@ -40,13 +42,15 @@ export default function BlockAddress({image}) {
             </div>
             <div className="corner-right flex-1">
                 <div className="h-full lg:max-h-[525px] overflow-hidden flex flex-1">
-                    <Image
-                        src={image}
-                        alt="image"
-                        width={525}
-                        height={525}
-                        className="object-cover h-full w-full object-[50%_50%]"
-                    />
+                    {hasImage && (
+                        <Image
+                            src={image}
+                            alt="image"
+                            width={525}
+                            height={525}
+                            className="object-cover h-full w-full object-[50%_50%]"
+                        />
+                    )}
                 </div>
             </div>
         </section>
