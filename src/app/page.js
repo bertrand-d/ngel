@@ -12,6 +12,11 @@ import BlockAddress from "@/components/blocks/BlockAddress";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [showOverlay, setShowOverlay] = useState(true);
+  const [adressesData, setAdressesData] = useState(null);
+  const [photosData, setPhotosData] = useState(null);
+
+  const WP_API_BASE =
+    process.env.NEXT_PUBLIC_WP_API_URL ?? "https://ngelparis.com/cms/wp-json";
 
   useEffect(() => {
     const MIN_LOADER_TIME = 900; // durée minimale en ms
@@ -44,6 +49,51 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const fetchWordPressData = async () => {
+      try {
+        const [adressesRes, photosRes] = await Promise.all([
+          fetch(
+            `${WP_API_BASE}/wp/v2/adresse?_embed&acf_format=standard&per_page=100`
+          ),
+          fetch(
+            `${WP_API_BASE}/wp/v2/photos?_embed&acf_format=standard&per_page=100`
+          ),
+        ]);
+
+        if (!adressesRes.ok) {
+          console.error(
+            "Erreur lors du fetch WordPress (adresses):",
+            adressesRes.status,
+            adressesRes.statusText
+          );
+        } else {
+          const adressesJson = await adressesRes.json();
+          console.log("Données WordPress – adresses:", adressesJson);
+          setAdressesData(adressesJson);
+        }
+
+        if (!photosRes.ok) {
+          console.error(
+            "Erreur lors du fetch WordPress (photos):",
+            photosRes.status,
+            photosRes.statusText
+          );
+        } else {
+          const photosJson = await photosRes.json();
+          console.log("Données WordPress – photos:", photosJson);
+          setPhotosData(photosJson);
+        }
+      } catch (error) {
+        console.error("Erreur réseau WordPress (CPT):", error);
+      }
+    };
+
+    fetchWordPressData();
+  }, [WP_API_BASE]);
+
+  const firstPhotoImage = photosData?.[0]?.acf?.photo_1;
+
   return (
     <main className="relative mt-[140px]">
       {showOverlay && (
@@ -60,7 +110,7 @@ export default function Home() {
       <section className="max-container pt-sm">
         <CarouselInfinite />
       </section>
-      <BlockArgs />
+      <BlockArgs image={firstPhotoImage} />
       <BlockRange />
       <BlockTroubleshooting />
       <BlockWaranty />

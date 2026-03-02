@@ -1,9 +1,7 @@
 import Image from "next/image";
-import image from "../../assets/img/PHOTO 2.jpg";
-import Link from "next/link";
 import ButtonPrimary from "../ButtonPrimary";
 
-export default function BlockArgs() {
+export default function BlockArgs({image}) {
     return (
         <section className="max-container grid lg:grid-cols-2 gap-md lg:gap-xl py-sm">
             <div className="flex flex-col gap-xxs justify-center">
