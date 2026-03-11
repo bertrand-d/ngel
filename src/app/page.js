@@ -69,7 +69,7 @@ export default function Home() {
           );
         } else {
           const adressesJson = await adressesRes.json();
-          setAdressesData(adressesJson);
+          setAdressesData(adressesJson[1].acf);
         }
 
         if (!photosRes.ok) {
