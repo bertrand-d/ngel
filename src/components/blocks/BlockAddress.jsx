@@ -3,19 +3,19 @@ import Image from "next/image";
 
 export default function BlockAddress({ image, address }) {
     const hasImage = !!image;
-    const data = address?.acf || null;
+    const data = address || null;
 
-    const secteur1 = data?.secteur_1 || "Paris";
-    const rue1 = data?.numero_et_rue_1 || "58 rue de Monceau";
-    const ville1 = data?.code_postal_et_ville_1 || "75008 Paris";
+    const secteur1 = data?.secteur_1 || "Data error";
+    const rue1 = data?.numero_et_rue_1 || "Data error";
+    const ville1 = data?.code_postal_et_ville_1 || "Data error";
 
-    const secteur2 = data?.secteur_2 || "Paris Est";
-    const rue2 = data?.numero_et_rue_2 || "7 rue Jean Prouvé";
-    const ville2 = data?.code_postal_et_ville_2 || "94800 Villejuif";
+    const secteur2 = data?.secteur_2 || "Data error";
+    const rue2 = data?.numero_et_rue_2 || "Data error";
+    const ville2 = data?.code_postal_et_ville_2 || "Data error";
 
-    const secteur3 = data?.secteur_3 || "Paris Ouest";
-    const rue3 = data?.numero_et_rue_3 || "5 rue Lavoisier";
-    const ville3 = data?.code_postal_et_ville_3 || "92350 Le Plessis Robinson";
+    const secteur3 = data?.secteur_3 || "Data error";
+    const rue3 = data?.numero_et_rue_3 || "Data error";
+    const ville3 = data?.code_postal_et_ville_3 || "Data error";
     return (
         <section className="max-container py-sm flex gap-md flex-col lg:flex-row lg:gap-xl">
             <div className="flex flex-col gap-5 justify-center flex-1">

@@ -143,7 +143,7 @@ export default function Home() {
       />
       <BlockTroubleshooting image={sixteenthPhotoImage} />
       <BlockWaranty />
-      <BlockAddress image={seventeenthPhotoImage} address={adressesData?.[0]} />
+      <BlockAddress image={seventeenthPhotoImage} address={adressesData} />
     </main>
   );
 }
